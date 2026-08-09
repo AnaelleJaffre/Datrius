@@ -1,12 +1,13 @@
 # Datrius
-Datrius is a personnal project, aiming to create a mini intelligence.
+Datrius is a personnal project, aiming to create a **mini intelligence**.
+
 Its aim is just for me to understand how human intelligence works. But I do whatever I want with the internal logic, which is why it only stays as a personnal project and not a scientifical one.
 
 ## Structure
 The Datrius is structured into 3 main parts:
-- Sensors | To feel the environment.
-- Actuators | To express itself into the environment.
-- Brain | To process the sensor inputs, and maybe transform them into actions with the actuators. Or just... to think.
+- **Sensors** | To feel the environment.
+- **Actuators** | To express itself into the environment.
+- **Brain** | To process the sensor inputs, and maybe transform them into actions with the actuators. Or just... to think.
 
 ![Structure visual](visualisation/architecture.png)
 
@@ -36,3 +37,13 @@ Just talk to it. And you will know.
     ```
     python main.py
     ```
+
+This will activate the Datrius.
+
+You will be able to talk to it.
+
+## Quiting tutorial
+Juste type it in the terminal.
+```
+quit
+```
