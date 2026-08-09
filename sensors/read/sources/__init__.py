@@ -1,0 +1,1 @@
+"""Collection of physical/technical text input sources."""

@@ -1,0 +1,1 @@
+"""Collection of physical/technical destinations for spoken output."""
