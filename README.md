@@ -17,6 +17,7 @@ For now, it cannot do many things.
 Just talk to it. And you will know.
 
 ## Launching tutorial
+Open a terminal a follow those steps.
 
 1. Create Virtual Environment
     ```
@@ -44,6 +45,7 @@ You will be able to talk to it.
 
 ## Quiting tutorial
 Juste type it in the terminal.
+
 ```
 quit
 ```

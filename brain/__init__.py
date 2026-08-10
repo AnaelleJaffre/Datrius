@@ -1,6 +1,6 @@
 """Central router: dispatches normalized sensor input to the relevant brain function."""
 
-from brain.language import extrapolate_text
+from brain.cognitive_functions.language import extrapolate_text
 
 def process(raw_input: str) -> str:
     """Processes raw input and returns the fitting output from the brain.

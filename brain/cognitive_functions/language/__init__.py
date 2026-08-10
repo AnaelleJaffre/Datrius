@@ -51,13 +51,17 @@ def extrapolate_text(raw_text: str) -> str:
 
     for vowel in dominant_vowels:
         final_sentence.append(random.choice(WORDS_BY_VOWEL[vowel]))
-        if random.random() < 0.2:
+        if random.random() < 0.2 and (final_sentence[-1] not in PUNCTUATION["middle"]):
             final_sentence[-1] += random.choice(PUNCTUATION["middle"])
 
     if not final_sentence:
             return "..."
     
     final_sentence = [word.capitalize() if i == 0 else word for i, word in enumerate(final_sentence)]
-    final_sentence[-1] += random.choice(PUNCTUATION["end"])
 
+    if final_sentence[-1] in PUNCTUATION["middle"]:
+        final_sentence[-1] = final_sentence[-1].pop()
+        
+    final_sentence[-1] += random.choice(PUNCTUATION["end"])
+   
     return " ".join(final_sentence)
