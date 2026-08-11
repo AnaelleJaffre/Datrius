@@ -6,7 +6,7 @@ from collections import deque
 from pathlib import Path
 
 # Configuration
-MEMORY_FILE = Path(__file__).parent / "short_term_memory.json"
+MEMORY_FILE = Path(__file__).parent / "storage/short_term_memory.json"
 MAX_LENGTH = 7
 
 def _load_memory() -> list:

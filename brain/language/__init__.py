@@ -35,8 +35,9 @@ def dominant_vowel(word: str) -> str | None:
 
     return max(vowel_count, key=vowel_count.get)
 
-    
-def extrapolate_text(raw_text: str) -> str:
+
+# Not used
+def extrapolate_text(raw_text: str) -> str: 
     """Generates abstract poetic text based on the dominant vowels in the raw input.
 
     Args:
@@ -64,4 +65,23 @@ def extrapolate_text(raw_text: str) -> str:
         
     final_sentence[-1] += random.choice(PUNCTUATION["end"])
    
+    return " ".join(final_sentence)
+
+
+# To improve
+def make_memory_sentence(memory: list) -> str :
+    """
+    Creates a sentence with words that [the user said and the brain has in memory].
+    """
+
+    final_sentence = []
+    proportion = random.randint(2,10)
+
+    for counter in range(1, proportion):
+        final_sentence.append(random.choice(memory))
+
+    # Capital at the begining and end punctuation
+    final_sentence = [word.capitalize() if i == 0 else word for i, word in enumerate(final_sentence)]
+    final_sentence[-1] += random.choice(PUNCTUATION["end"])
+
     return " ".join(final_sentence)

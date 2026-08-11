@@ -5,7 +5,7 @@ The more the key is called, the more its count increases.
 import json
 from pathlib import Path
 
-MEMORY_FILE = Path(__file__).parent / "long_term_memory.json"
+MEMORY_FILE = Path(__file__).parent / "storage/long_term_memory.json"
 
 def _load_memory() -> dict:
     """Loads long-term memory from the JSON file.
