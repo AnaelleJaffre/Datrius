@@ -3,6 +3,7 @@
 from brain.language import extrapolate_text, make_memory_sentence
 from brain.memory.long_term_memory import LongTermMemory
 from brain.memory.short_term_memory import ShortTermMemory 
+from brain.language.normalize_word import normalize_word, extract_punctuation
 
 ltm = LongTermMemory()
 
@@ -25,7 +26,10 @@ def process(raw_input: str) -> str:
         # The word is stored / being reinforced with the 2 previous words.
         last_word_id = len(sentence) - 1
         if len(sentence) != 0:
-            ltm.store(word, {sentence[last_word_id]:1, sentence[last_word_id - 1]:0.5})
+            extracted_punctuation = extract_punctuation(word)
+            word = normalize_word(word)
+            ltm.store(word, {sentence[last_word_id]:1, sentence[last_word_id - 1]:0.5}, "words")
+            ltm.store(extracted_punctuation, {sentence[last_word_id]:1, sentence[last_word_id - 1]:0.5}, "punctuation")
 
         sentence.append(word.lower())
 

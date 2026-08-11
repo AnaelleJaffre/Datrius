@@ -1,14 +1,25 @@
 # Brain
 
 For now, it says random things according to the answer of the user input, and only spells words which are in its memory.
+Saves words and punctuation in its LTM within 2 separate categories.
 
-- Has a **short term memory of 7 items**. Can be used, is defined as a class. For now, an item is a sentence.
+- Has a non-used **short term memory of 7 items**. Can be used, is defined as a class. For now, an item is a sentence.
 
 ## Next steps
 
-- **Refactorisation**: I made something with memory into the brain. However, it's only about language. Is this the right place?
+- Make **sentences** according to **probabilities**. The more a word is used following another, the more chance it has to come after.
 
-- **Punctuation**: words are stored in memory with their puntuation. It should not.
+- Change the logic? The **two previous words** are saved in memory with different intensity. However, shouldn't it be easier to save the words after and before? How is it made into the brain? Maybe make a parameter "after" and "before" for now, and study this characteristic later?
+
+- Add **forgetfulness**.
+
+- Add more words than just the 2 previous into the saving in memory. Like, 5.
+
+- Implement normalization. Weight of a connexion should be between 0 and 1.
+
+- **Punctuation**: the character "" (so nothing) is stored into punctuation. Why?
+
+- Implement **architecture** in LTM. Concepts might englobe others, and so on. This can be allowed during the learning stage.
 
 - **Creativity**: sentences are only made with recognized words said by the user. Should allow to use memory items.
 
@@ -26,4 +37,6 @@ For now, it says random things according to the answer of the user input, and on
 
 - **Emotions**
 
-- **Reflexes** in general, with emotions into it
+- **Reflexes** in general, with emotions into it.
+
+- Add **visualisation**: a graph to show main concepts, and the more it has connexions, the bigger it is. Not all of the items of LTM should be represented, only the X bigest ones.
