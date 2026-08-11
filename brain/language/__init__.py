@@ -77,6 +77,9 @@ def make_memory_sentence(memory: list) -> str :
     final_sentence = []
     proportion = random.randint(2,10)
 
+    if not memory:
+        return "..."
+    
     for counter in range(1, proportion):
         final_sentence.append(random.choice(memory))
 
