@@ -1,6 +1,9 @@
 """Generates abstract poetic text from raw input, based on dominant vowels."""
 
 import random
+from brain.memory.long_term_memory import LongTermMemory
+
+ltm = LongTermMemory()
 
 VOWELS = "aeiou"
 WORDS_BY_VOWEL = {
@@ -68,23 +71,44 @@ def extrapolate_text(raw_text: str) -> str:
     return " ".join(final_sentence)
 
 
+def choose_next_word(word: str) -> str:
+    """Chooses the next word based on the strongest association in long-term memory."""
+    words_from_memory = ltm.get_all_keys()
+    
+    for key in words_from_memory:
+        for assoc_word in ltm.get_top_associations(key, 10):
+            # Vérifie si l'association correspond au mot recherché
+            if assoc_word[0] == word:
+                return key
+    
+    if words_from_memory:
+        return random.choice(words_from_memory)
+    
+    return word  # Fallback ultime si la mémoire est vide
+
+
 # To improve
-def make_memory_sentence(memory: list) -> str :
+def make_memory_sentence(memory: list, input_length: int) -> str :
     """
     Creates a sentence with words that [the user said and the brain has in memory].
     """
 
     final_sentence = []
-    proportion = random.randint(2,10)
+    proportion = random.randint(1,10)
+
+    final_sentence_length = int(input_length * proportion / 10)
 
     if not memory:
         return "..."
     
-    for counter in range(1, proportion):
-        final_sentence.append(random.choice(memory))
+    for counter in range(1, final_sentence_length + 1):
+        final_sentence.append(choose_next_word(final_sentence[-1]) if counter > 1 else random.choice(memory))
 
     # Capital at the begining and end punctuation
     final_sentence = [word.capitalize() if i == 0 else word for i, word in enumerate(final_sentence)]
-    final_sentence[-1] += random.choice(PUNCTUATION["end"])
 
-    return " ".join(final_sentence)
+    str_final_sentence = " ".join(final_sentence)
+
+    str_final_sentence += random.choice(PUNCTUATION["end"])
+
+    return str_final_sentence

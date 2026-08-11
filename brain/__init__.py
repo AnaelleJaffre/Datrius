@@ -39,6 +39,6 @@ def process(raw_input: str) -> str:
             words_to_use.append(word)
 
     # Then it can be used to generate random text
-    output = make_memory_sentence(words_to_use)
+    output = make_memory_sentence(words_to_use, len(sentence))
 
     return output
