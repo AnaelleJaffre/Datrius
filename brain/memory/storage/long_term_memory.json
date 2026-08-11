@@ -34,7 +34,8 @@
   "in": {
     "usefull": 1,
     "alreay": 1,
-    "enhance": 0.5
+    "enhance": 0.5,
+    "fire": 0.5
   },
   "life,": {
     "in": 1
@@ -216,5 +217,31 @@
   "?": {
     "ltm": 1,
     "in": 0.5
+  },
+  "it's": {
+    "waw": 1.0
+  },
+  "beautiful": {
+    "it's": 2,
+    "waw": 1.0
+  },
+  "fire": {
+    "nice": 0.5
+  },
+  "extinguisher": {
+    "fire": 1,
+    "nice": 0.5
+  },
+  "you've": {
+    "extinguisher": 1,
+    "fire": 0.5
+  },
+  "got": {
+    "you've": 1,
+    "extinguisher": 0.5
+  },
+  "there": {
+    "in": 1,
+    "fire": 0.5
   }
 }

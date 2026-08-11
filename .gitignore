@@ -32,5 +32,5 @@ datrius_venv/
 .env.local
 
 # Brain
-brain/memory/short_term_memory.json
-brain/memory/long_term_memory.json
+brain/memory/storage/short_term_memory.json
+brain/memory/storage/long_term_memory.json
