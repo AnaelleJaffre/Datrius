@@ -1,6 +1,6 @@
 """Central router: dispatches normalized sensor input to the relevant brain function."""
 
-from brain.language import extrapolate_text, make_memory_sentence
+from brain.language import make_memory_sentence
 from brain.memory.long_term_memory import LongTermMemory
 from brain.memory.short_term_memory import ShortTermMemory 
 from brain.language.normalize_word import normalize_word, extract_punctuation
@@ -17,28 +17,20 @@ def process(raw_input: str) -> str:
         str: The processed output from the brain.
     """
     # Is this supposed to be here? Or memory can be used outside, in language scripts?
-    sentence = []
     words_to_use = []
     words_from_memory = ltm.get_all_keys()
 
-    for word in raw_input.split():
+    words = [normalize_word(w) for w in raw_input.split()]
 
-        # The word is stored / being reinforced with the 2 previous words.
-        last_word_id = len(sentence) - 1
-        if len(sentence) != 0:
-            extracted_punctuation = extract_punctuation(word)
-            word = normalize_word(word)
-            ltm.store(word, {sentence[last_word_id]:1, sentence[last_word_id - 1]:0.5}, "words")
-            ltm.store(extracted_punctuation, {sentence[last_word_id]:1, sentence[last_word_id - 1]:0.5}, "punctuation")
-
-        sentence.append(word.lower())
+    for i in range(len(words) - 1):
+        ltm.store(words[i], {words[i + 1]: 1}, "words")
 
     # If there are words of the sentence that are into memory, they are leveraged.
-    for word in sentence:
+    for word in words:
         if word in words_from_memory:
             words_to_use.append(word)
 
     # Then it can be used to generate random text
-    output = make_memory_sentence(words_to_use, len(sentence))
+    output = make_memory_sentence(words_to_use, len(words))
 
     return output
