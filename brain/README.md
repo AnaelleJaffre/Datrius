@@ -7,15 +7,13 @@ Saves words and punctuation in its LTM within 2 separate categories.
 
 ## Next steps
 
-- Make **sentences** according to **probabilities**. The more a word is used following another, the more chance it has to come after.
-
-- Change the logic? The **two previous words** are saved in memory with different intensity. However, shouldn't it be easier to save the words after and before? How is it made into the brain? Maybe make a parameter "after" and "before" for now, and study this characteristic later?
-
 - Add **forgetfulness**.
 
 - Add more words than just the 2 previous into the saving in memory. Like, 5.
 
 - Implement normalization. Weight of a connexion should be between 0 and 1.
+
+- Make it more intelligent. For now, it mimics a basic connexion algorithm. Levels have to be integrated, so that it can think out of the box. For instance, punctuation is set just after a word according to probabilities. It should be better if the brain understood the context, and according to it, added punctuation when a part of the sentence needed it. So it would understand if it answered correctly to the the input.
 
 - **Punctuation**: the character "" (so nothing) is stored into punctuation. Why?
 
